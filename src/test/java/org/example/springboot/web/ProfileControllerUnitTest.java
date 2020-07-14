@@ -29,6 +29,24 @@ public class ProfileControllerUnitTest {
         //given
         String expectedProfile = "oauth";
         MockEnvironment env = new MockEnvironment();
+
+        env.addActiveProfile(expectedProfile);
+        env.addActiveProfile("real-db");
+
+        ProfileController controller = new ProfileController(env);
+
+        //when
+        String profile = controller.profile();
+
+        //then
+        assertThat(profile).isEqualTo(expectedProfile);
+    }
+
+    @Test
+    public void active_profile이_없으면_default가_조회된다(){
+        //given
+        String expectedProfile = "default";
+        MockEnvironment env = new MockEnvironment();
         ProfileController controller = new ProfileController(env);
 
         //when
