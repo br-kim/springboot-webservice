@@ -32,18 +32,30 @@
 <div class="col-md-12">
     <form>
         <div class="form-group">
-            <input type="text" id="comment_author">
-            <input type="text" id="comment_content">
+            <input type="text" class="form-control" id="comment_author">
+            <input type="text" class="form-control" id="comment_content">
         </div>
+        <button type="button" class="btn btn-primary" id="btn-com-save">댓글 등록</button>
     </form>
-    <button type="button" class="btn btn-primary" id="btn-com-save">댓글 등록</button>
-    {{#comments}}
+
+    <table class="table table-horizontal table-bordered">
+        <thead class="thead-strong">
+        <tr>
+            <th>작성자</th>
+            <th>내용</th>
+            <th>최종수정일</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#comments}}
         <tr>
             <td>{{author}}</td>
             <td>{{content}}</td>
             <td>{{modifiedDate}}</td>
         </tr>
-    {{/comments}}
+        {{/comments}}
+        </tbody>
+    </table>
 </div>
 
 {{>layout/footer}}
