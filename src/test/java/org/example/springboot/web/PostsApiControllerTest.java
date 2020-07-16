@@ -75,7 +75,7 @@ public class PostsApiControllerTest {
         String url = "http://localhost:" + port  + "/api/v1/posts";
 
         //when
-        /* 5장 이전
+        /* MockMVC를 이용한 테스트로 변경함
         ResponseEntity<Long> responseEntity = restTemplate.
                 postForEntity(url, requestDto, Long.class);
          */
@@ -85,7 +85,7 @@ public class PostsApiControllerTest {
                 .andExpect(status().isOk());
 
         //then
-        /* 5장 이전
+        /* MockMVC를 이용한 테스트로 변경함
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isGreaterThan(0L);
         */
@@ -117,7 +117,7 @@ public class PostsApiControllerTest {
 
         HttpEntity<PostsUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
         //when
-        /* 5장 이전
+        /* MockMVC를 이용한 테스트로 변경함
         ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT,
                 requestEntity, Long.class);
         */
@@ -126,7 +126,7 @@ public class PostsApiControllerTest {
                 .content(new ObjectMapper().writeValueAsString(requestDto)))
                 .andExpect(status().isOk());
         //then
-        /* 5장 이전
+        /* MockMVC를 이용한 테스트로 변경함
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isGreaterThan(0L);
         */
