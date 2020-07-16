@@ -81,7 +81,7 @@ var main = {
         var data = {
             author: $('#comment_author').val(),
             content: $('#comment_content').val(),
-            parent_id: $('#id').val()
+            parentId: $('#id').val()
         }
         $.ajax({
             type: 'POST',
