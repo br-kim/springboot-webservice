@@ -80,7 +80,8 @@ var main = {
     commentSave : function () {
         var data = {
             author: $('#comment_author').val(),
-            content: $('#comment_content').val()
+            content: $('#comment_content').val(),
+            parent_id: $('#id').val()
         }
         $.ajax({
             type: 'POST',
