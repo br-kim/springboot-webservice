@@ -27,5 +27,25 @@
         <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
     </div>
 </div>
+<!-- 댓글 영역 테스트-->
+
+<div>
+    <form>
+        <div>
+            <input type="text" id="comment_author">
+        </div>
+        <div>
+            <input type="text" id="comment_content">
+        </div>
+    </form>
+    <button type="button" class="btn btn-primary" id="btn-com-update">수정 완료</button>
+    {{#comments}}
+        <tr>
+            <td>{{author}}</td>
+            <td>{{content}}</td>
+            <td>{{modifiedDate}}</td>
+        </tr>
+    {{/comments}}
+</div>
 
 {{>layout/footer}}

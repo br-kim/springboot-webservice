@@ -7,7 +7,7 @@ import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
-
+//LoginUser 어노테이션을 위한 Config
 @RequiredArgsConstructor
 @Configuration
 public class WebConfig implements WebMvcConfigurer {

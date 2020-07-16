@@ -3,7 +3,9 @@ package org.example.springboot.web;
 import lombok.RequiredArgsConstructor;
 import org.example.springboot.config.auth.LoginUser;
 import org.example.springboot.config.auth.dto.SessionUser;
+import org.example.springboot.service.comments.CommentsService;
 import org.example.springboot.service.posts.PostsService;
+import org.example.springboot.web.dto.CommentsListResponseDto;
 import org.example.springboot.web.dto.PostsResponseDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpSession;
 public class IndexController {
 
     private final PostsService postsService;
+    private final CommentsService commentsService;
     private final HttpSession httpSession;
 
     @GetMapping("/")
@@ -35,9 +38,9 @@ public class IndexController {
 
     @GetMapping("/posts/view/{id}")
     public String postsView(@PathVariable Long id, Model model){
-        PostsResponseDto dto = postsService.findById(id);
-        model.addAttribute("post",dto);
-
+        PostsResponseDto postsDto = postsService.findById(id);
+        model.addAttribute("post",postsDto);
+        model.addAttribute("comments",commentsService.findByParentIdByOrderByIdDesc(id));
         return "posts-view";
     }
 

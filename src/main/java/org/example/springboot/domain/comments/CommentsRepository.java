@@ -2,8 +2,8 @@ package org.example.springboot.domain.comments;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
+import java.util.List;
 
 public interface CommentsRepository extends JpaRepository<Comments, Long> {
-    Optional<Comments> findByParentId(Long parentId);
+    List<Comments> findByParentIdByOrderByIdDesc(Long parentId);
 }

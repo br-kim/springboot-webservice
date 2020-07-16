@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Getter
 public class PostsListResponseDto {
-
+//메인 화면에서 모든 글을 불러오기 위한 Dto
     private Long id;
     private String title;
     private String author;

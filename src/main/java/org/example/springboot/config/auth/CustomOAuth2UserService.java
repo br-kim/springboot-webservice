@@ -43,6 +43,7 @@ public class CustomOAuth2UserService implements OAuth2UserService {
                 attributes.getNameAttributeKey());
     }
 
+    //이메일을 이용하여 이미 가입한 사용자인지 확인하고 진행한다.
     private User saveOrUpdate(OAuthAttributes attributes){
         User user = userRepository.findByEmail(attributes.getEmail())
                 .map(entity->entity.update(attributes.getName(),

@@ -12,7 +12,12 @@ var main = {
         $('#btn-delete').on('click', function () {
             _this.delete();
         });
+
+        $('#btn-com-save').on('click', function () {
+            _this.commentSave();
+        });
     },
+
     save : function () {
         var data = {
             title: $('#title').val(),
@@ -33,6 +38,7 @@ var main = {
             alert(JSON.stringify(error));
         });
     },
+
     update : function () {
         var data = {
             title: $('#title').val(),
@@ -54,6 +60,7 @@ var main = {
             alert(JSON.stringify(error));
         });
     },
+
     delete : function () {
         var id = $('#id').val();
 
@@ -68,8 +75,26 @@ var main = {
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
-    }
+    },
 
+    commentSave : function () {
+        var data = {
+            author: $('#comment_author').val(),
+            content: $('#comment_content').val()
+        }
+        $.ajax({
+            type: 'POST',
+            url: '/api/v1/comments',
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+        }).done(function() {
+            alert('댓글이 등록되었습니다.');
+            //window.location.href = '/';
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    }
 };
 
 main.init();
