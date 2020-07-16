@@ -11,17 +11,20 @@ public class CommentsSaveRequestDto {
 
     private String content;
     private String author;
+    private Long parentId;
 
     @Builder
-    public CommentsSaveRequestDto(String title, String content, String author){
+    public CommentsSaveRequestDto(String content, String author, Long parentId){
         this.content = content;
         this.author = author;
+        this.parentId = parentId;
     }
 
     public Comments toEntity(){
         return Comments.builder()
                 .content(content)
                 .author(author)
+                .parentId(parentId)
                 .build();
     }
 }
