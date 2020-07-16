@@ -38,6 +38,7 @@ public class CommentsService {
                 .collect(Collectors.toList());
     }
 
+
     @Transactional
     public void delete(Long id){
         Comments comments = commentsRepository.findById(id)
