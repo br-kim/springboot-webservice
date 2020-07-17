@@ -50,12 +50,11 @@
         </thead>
         <tbody id="tbody">
         {{#comments}}
-        <tr id="comment-table" name="{{postId}}">
+        <tr id="comment-table" name="{{id}}">
             <td>{{author}}</td>
             <td>{{content}}</td>
             <td>{{modifiedDate}}</td>
             <td><button type="button" class="btn btn-danger" id="btn-com-delete">삭제</button></td>
-            <td style="display:none;">{{postId}}</td>
         </tr>
         {{/comments}}
         </tbody>

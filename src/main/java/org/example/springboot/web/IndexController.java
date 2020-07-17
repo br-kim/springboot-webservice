@@ -36,11 +36,12 @@ public class IndexController {
         return "posts-save";
     }
 
-    @GetMapping("/posts/view/{postId}")
-    public String postsView(@PathVariable Long postId, Model model, @LoginUser SessionUser user){
-        PostsResponseDto postsDto = postsService.findById(postId);
+    @GetMapping("/posts/view/{id}")
+    public String postsView(@PathVariable Long id, Model model, @LoginUser SessionUser user){
+        PostsResponseDto postsDto = postsService.findById(id);
         model.addAttribute("post",postsDto);
-        model.addAttribute("comments",commentsService.findByParentIdByOrderByIdDesc(postId));
+        model.addAttribute("comments",commentsService.findByParentIdByOrderByIdDesc(id));
+        System.out.println(model.asMap().get("comments").toString());
         model.addAttribute("loggedName",user.getName());
         return "posts-view";
     }
