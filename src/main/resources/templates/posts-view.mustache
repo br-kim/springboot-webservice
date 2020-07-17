@@ -45,6 +45,7 @@
             <th>작성자</th>
             <th>내용</th>
             <th>최종수정일</th>
+            <th></th>
         </tr>
         </thead>
         <tbody id="tbody">
@@ -54,6 +55,7 @@
             <td>{{content}}</td>
             <td>{{modifiedDate}}</td>
             <td><button type="button" class="btn btn-danger" id="btn-com-delete">삭제</button></td>
+            <td style="display:none;">{{id}}</td>
         </tr>
         {{/comments}}
         </tbody>
