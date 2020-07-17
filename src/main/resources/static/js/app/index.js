@@ -17,9 +17,9 @@ var main = {
             _this.commentSave();
         });
 
-        $('#btn-com-delete').on('click',function(){
+        $(document).on('click','#btn-com-delete',function(){
             _this.commentDelete();
-        })
+        });
     },
 
     save : function () {
