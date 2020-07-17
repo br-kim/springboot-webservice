@@ -16,6 +16,10 @@ var main = {
         $('#btn-com-save').on('click', function () {
             _this.commentSave();
         });
+
+        $('#btn-com-delete').on('click',function(){
+            _this.commentDelete();
+        })
     },
 
     save : function () {
@@ -91,6 +95,22 @@ var main = {
             data: JSON.stringify(data)
         }).done(function() {
             alert('댓글이 등록되었습니다.');
+            window.location.href = window.location.href;
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+
+    commentDelete : function () {
+        var id = $('#comment-table').attr('name')
+
+        $.ajax({
+            type: 'DELETE',
+            url: '/api/v1/comments/'+id,
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8'
+        }).done(function() {
+            alert('댓글이 삭제되었습니다.');
             window.location.href = window.location.href;
         }).fail(function (error) {
             alert(JSON.stringify(error));

@@ -3,9 +3,7 @@ package org.example.springboot.web;
 import lombok.RequiredArgsConstructor;
 import org.example.springboot.service.comments.CommentsService;
 import org.example.springboot.web.dto.CommentsSaveRequestDto;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
@@ -19,4 +17,9 @@ public class CommentApiController {
         return commentsService.save(requestDto);
     }
 
+    @DeleteMapping("/api/v1/comments/{id}")
+    public Long delete(@PathVariable Long id){
+        commentsService.delete(id);
+        return id;
+    }
 }
