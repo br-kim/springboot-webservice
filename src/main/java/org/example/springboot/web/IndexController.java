@@ -19,7 +19,6 @@ public class IndexController {
 
     private final PostsService postsService;
     private final CommentsService commentsService;
-    private final HttpSession httpSession;
 
     @GetMapping("/")
     public String index(Model model, @LoginUser SessionUser user){
@@ -41,7 +40,6 @@ public class IndexController {
         PostsResponseDto postsDto = postsService.findById(id);
         model.addAttribute("post",postsDto);
         model.addAttribute("comments",commentsService.findByParentIdByOrderByIdDesc(id));
-        System.out.println(model.asMap().get("comments").toString());
         model.addAttribute("loggedName",user.getName());
         return "posts-view";
     }

@@ -1,5 +1,6 @@
 Springboot Project
 ------------------
+Spring Boot version 2.1.7.RELEASE
 
 1. 글 작성 및 삭제
 2. 댓글 작성 및 삭제
