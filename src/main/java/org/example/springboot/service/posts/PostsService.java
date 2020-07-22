@@ -1,6 +1,8 @@
 package org.example.springboot.service.posts;
 
 import lombok.RequiredArgsConstructor;
+import org.example.springboot.config.auth.LoginUser;
+import org.example.springboot.config.auth.dto.SessionUser;
 import org.example.springboot.domain.posts.Posts;
 import org.example.springboot.domain.posts.PostsRepository;
 import org.example.springboot.web.dto.PostsListResponseDto;
@@ -39,10 +41,15 @@ public class PostsService {
     }
 
     @Transactional
-    public void delete (Long id){
+    public void delete (Long id, @LoginUser SessionUser user){
         Posts posts = postsRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id="+id));
-        postsRepository.delete(posts);
+        if (user.getName().equals(posts.getAuthor())) {
+            postsRepository.delete(posts);
+        }
+        else{
+            throw new IllegalAccessError("본인의 글만 삭제 가능합니다.");
+        }
     }
 
     public PostsResponseDto findById (Long id) {

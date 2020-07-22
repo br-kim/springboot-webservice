@@ -1,6 +1,8 @@
 package org.example.springboot.web;
 
 import lombok.RequiredArgsConstructor;
+import org.example.springboot.config.auth.LoginUser;
+import org.example.springboot.config.auth.dto.SessionUser;
 import org.example.springboot.service.posts.PostsService;
 import org.example.springboot.web.dto.PostsResponseDto;
 import org.example.springboot.web.dto.PostsSaveRequestDto;
@@ -30,8 +32,8 @@ public class PostApiController {
     }
 
     @DeleteMapping("/api/v1/posts/{id}")
-    public Long delete(@PathVariable Long id){
-        postsService.delete(id);
+    public Long delete(@PathVariable Long id, @LoginUser SessionUser user)  {
+        postsService.delete(id,user);
         return id;
     }
 }
