@@ -7,6 +7,7 @@ import org.example.springboot.domain.BaseTimeEntity;
 
 import javax.persistence.*;
 
+
 @Getter
 @NoArgsConstructor
 @Entity
@@ -24,8 +25,10 @@ public class Posts extends BaseTimeEntity {
 
     private String author;
 
+
     @Builder
-    public Posts(String title, String content, String author){
+    public Posts(Long id, String title, String content, String author){
+        this.id = id;
         this.title = title;
         this.content = content;
         this.author = author;

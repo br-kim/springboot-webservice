@@ -16,6 +16,7 @@ public class CommentApiController {
     @PostMapping("/api/v1/comments")
     public Long save(@RequestBody CommentsSaveRequestDto requestDto)
     {
+        System.out.println(requestDto.getPostId());
         return commentsService.save(requestDto);
     }
 
