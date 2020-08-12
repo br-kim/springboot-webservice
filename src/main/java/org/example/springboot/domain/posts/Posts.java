@@ -4,8 +4,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.example.springboot.domain.BaseTimeEntity;
+import org.example.springboot.domain.comments.Comments;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Getter
@@ -24,7 +27,6 @@ public class Posts extends BaseTimeEntity {
     private String content;
 
     private String author;
-
 
     @Builder
     public Posts(Long id, String title, String content, String author){
