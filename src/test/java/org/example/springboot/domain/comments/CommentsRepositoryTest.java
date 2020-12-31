@@ -22,6 +22,10 @@ public class CommentsRepositoryTest {
     public void cleanup() {commentsRepository.deleteAll();}
 
     @Test
+    public void voidTest(){
+
+    }
+
     public void 댓글저장_불러오기(){
 
         String content = "댓글 본문";
