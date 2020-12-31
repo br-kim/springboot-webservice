@@ -1,7 +1,7 @@
 package org.example.springboot.web.dto;
 
 import org.example.springboot.domain.posts.Posts;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
