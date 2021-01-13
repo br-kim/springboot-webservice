@@ -1,3 +1,9 @@
 h1 {
     text-align: center;
 }
+
+#centeralign {
+    width: 90%;
+    float: none;
+    margin: 0 auto;
+}
